@@ -1,25 +1,33 @@
 package com.demodb.demodb.model;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
-@Data
 @Entity
+@Data
 @Table(name = "users")
 public class User {
+
+    public User(String userName, String userEmail, String userPassword) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        warehouseRoles = new ArrayList<>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer userId;
 
-    @ManyToOne
-    @JoinColumn
-    private UserRole userRole;
+    @Column(name = "user_name")
+    private String userName;
 
     @Column(name = "user_email")
     private String userEmail;
@@ -27,8 +35,10 @@ public class User {
     @Column(name = "user_password")
     private String userPassword;
 
-    public User(String userEmail, String userPassword){
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-    }
+    @OneToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<WarehouseRole> warehouseRoles;
+
+
+
 }

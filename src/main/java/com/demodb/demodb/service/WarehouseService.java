@@ -8,7 +8,7 @@ public interface WarehouseService {
 
     Warehouse createWarehouse(Warehouse warehouse);
     Warehouse updateWarehouse(Warehouse warehouse);
-    List<Warehouse> findAll();
-    Warehouse findById(Integer id);
+    List<Warehouse> findAllWarehouse();
+    Warehouse findWarehouseById(Integer id);
     Warehouse deleteWarehouse(Integer id);
 }

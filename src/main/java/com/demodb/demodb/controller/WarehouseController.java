@@ -35,6 +35,6 @@ public class WarehouseController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public List<Warehouse> findAllWarehouse(){
-        return warehouseService.findAll();
+        return warehouseService.findAllWarehouse();
     }
 }

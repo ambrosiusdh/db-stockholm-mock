@@ -25,6 +25,13 @@ public class WarehouseSeeder {
         warehouseName.add("Gudang Jakarta");
         warehouseName.add("Gudang Makassar");
         warehouseName.add("Gudang Medan");
+        warehouseName.add("Gudang Singapore");
+        warehouseName.add("Gudang Aceh");
+        warehouseName.add("Gudang Palembang");
+        warehouseName.add("Gudang Pontianak");
+        warehouseName.add("Gudang Semarang");
+        warehouseName.add("Gudang Surabaya");
+        warehouseName.add("Gudang Palu");
     }
 
     public void seedWarehouseTable() {
@@ -37,14 +44,34 @@ public class WarehouseSeeder {
             int fulfilled= random.nextInt(50) + 1;
             int pending = random.nextInt(50) + 1;
 
-            warehouseList.add(
+            if (i == 0){
+                warehouseList.add(
                     new Warehouse(
                             null,
-                    warehouseName.get(i%3),
-                    fulfilled+pending,
-                    pending,
-                    fulfilled
-            ));
+                            warehouseName.get(i),
+                            fulfilled+pending,
+                            pending,
+                            fulfilled
+                    ));
+            }else if (i == 1){
+                warehouseList.add(
+                        new Warehouse(
+                                null,
+                                warehouseName.get(i),
+                                fulfilled+pending,
+                                pending,
+                                fulfilled
+                        ));
+            }else {
+                warehouseList.add(
+                        new Warehouse(
+                                null,
+                                warehouseName.get(i),
+                                fulfilled + pending,
+                                pending,
+                                fulfilled
+                        ));
+            }
             i++;
         }
 

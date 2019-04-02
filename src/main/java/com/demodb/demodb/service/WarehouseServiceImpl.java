@@ -31,12 +31,12 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public List<Warehouse> findAll() {
+    public List<Warehouse> findAllWarehouse() {
         return warehouseRepository.findAll();
     }
 
     @Override
-    public Warehouse findById(Integer id) {
+    public Warehouse findWarehouseById(Integer id) {
         if(warehouseRepository.findById(id).isPresent())
             return warehouseRepository.findById(id).get();
         else

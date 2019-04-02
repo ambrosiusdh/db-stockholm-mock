@@ -11,5 +11,6 @@ public interface UserService {
     User findUserById(Integer id);
     List<User> findAllUser();
     User deleteUser(Integer id);
-
+    User findUserByEmailAndPassword(String userEmail, String userPassword);
+    User validateUserLogin(Object object);
 }

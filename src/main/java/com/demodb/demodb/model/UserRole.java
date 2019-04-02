@@ -1,13 +1,13 @@
 package com.demodb.demodb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +16,9 @@ import java.util.stream.Stream;
 @Table(name = "user_roles")
 public class UserRole {
 
-    public UserRole(String userRoleName, User... users){
+    public UserRole(String userRoleName) {
         this.userRoleName = userRoleName;
-        this.users = Stream.of(users).collect(Collectors.toList());
-        this.users.forEach(x->x.setUserRole(this));
+        this.warehouseRoles = new ArrayList<>();
     }
 
     @Id
@@ -30,11 +29,8 @@ public class UserRole {
     @Column(name = "user_role_name")
     private String userRoleName;
 
-    @OneToMany(mappedBy = "userRole", cascade = CascadeType.ALL)
-    private List<User> users;
-
-    public void addUser(User user){
-        users.add(user);
-    }
+    @OneToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<WarehouseRole> warehouseRoles;
 
 }
