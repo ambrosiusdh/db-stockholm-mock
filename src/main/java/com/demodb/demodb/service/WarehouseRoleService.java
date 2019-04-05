@@ -11,6 +11,7 @@ public interface WarehouseRoleService {
     WarehouseRole findWarehouseRoleById(Integer id);
     WarehouseRole deleteWarehouseRoleById(Integer id);
     List<WarehouseRole> findAllWarehouseRole();
+    WarehouseRole findWarehouseRoleByUserUserIdAndWarehouseWarehouseId(Integer userId, Integer warehouseId);
     WarehouseRole authenticateWarehouseRole(Object object);
 
 }

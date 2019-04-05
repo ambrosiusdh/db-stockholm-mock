@@ -39,6 +39,15 @@ public class WarehouseRoleController {
     }
 
     @RequestMapping(
+            value = "/warehouse-role/{userId}/{warehouseId}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public WarehouseRole findWarehouseRoleByUserAndWarehouse(@PathVariable("userId") Integer userId, @PathVariable("warehouseId") Integer warehouseId){
+        return warehouseRoleService.findWarehouseRoleByUserUserIdAndWarehouseWarehouseId(userId, warehouseId);
+    }
+
+    @RequestMapping(
             value = "/warehouse-role/authenticate",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,

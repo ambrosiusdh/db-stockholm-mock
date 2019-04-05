@@ -54,4 +54,9 @@ public class WarehouseServiceImpl implements WarehouseService {
         warehouseRepository.delete(temp);
         return temp;
     }
+
+    @Override
+    public Warehouse findWarehouseByWarehouseName(String warehouseName) {
+        return warehouseRepository.findWarehouseByWarehouseName(warehouseName);
+    }
 }

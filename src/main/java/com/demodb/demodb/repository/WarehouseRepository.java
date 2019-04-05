@@ -8,5 +8,6 @@ import java.util.List;
 public interface WarehouseRepository extends JpaRepository<Warehouse, Integer> {
 
     List<Warehouse> findAllByWarehouseName(String warehouseName);
+    Warehouse findWarehouseByWarehouseName(String warehouseName);
 
 }

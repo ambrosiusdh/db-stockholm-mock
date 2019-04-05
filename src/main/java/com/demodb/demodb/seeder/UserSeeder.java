@@ -25,19 +25,15 @@ public class UserSeeder {
 
         userNameList.add("Ambrosius David");
         userNameList.add("Ambrosius Haryono");
-        userNameList.add("David Haryono");
-        userNameList.add("David Ambrosius");
 
         userEmailList.add("ambrosius.david@gdn-commerce.com");
         userEmailList.add("ambrosius.haryono@gdn-commerce.com");
-        userEmailList.add("david.haryono@gdn-commerce.com");
-        userEmailList.add("david.ambrosius@gdn-commerce.com");
     }
 
     public void seedUserTable(){
         int i = 0;
 
-        while (i < 4){
+        while (i < 2){
             userService.createUser(
                     new User(
                         userNameList.get(i),

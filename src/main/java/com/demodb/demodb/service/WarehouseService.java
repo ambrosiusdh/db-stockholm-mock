@@ -11,4 +11,5 @@ public interface WarehouseService {
     List<Warehouse> findAllWarehouse();
     Warehouse findWarehouseById(Integer id);
     Warehouse deleteWarehouse(Integer id);
+    Warehouse findWarehouseByWarehouseName(String warehouseName);
 }

@@ -30,14 +30,21 @@ public class WarehouseRoleSeeder {
     public void seedWarehouseRoleTable(){
         int i = 0;
 
-        while (i < 8){
-            User user = userService.findUserById((i%4) + 1);
+        while (i < 8) {
+            User user;
             UserRole userRole;
-            if(i > 3)
-                userRole = userRoleService.findUserRoleById(((i+1) % 2) + 1);
-            else
-                userRole = userRoleService.findUserRoleById((i%2) + 1);
-            Warehouse warehouse = warehouseService.findWarehouseById(i+1);
+            Warehouse warehouse = warehouseService.findWarehouseById((i%4) + 1);
+
+            if (i < 4) {
+                user = userService.findUserById((i % 2) + 1);
+                userRole = userRoleService.findUserRoleById(1);
+
+            }else{
+                user = userService.findUserById(((7-i) % 2) + 1);
+                userRole = userRoleService.findUserRoleById(2);
+
+            }
+
             warehouseRoleService.createWarehouseRole(
                     new WarehouseRole(
                             user,
